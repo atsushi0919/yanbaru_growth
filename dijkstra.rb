@@ -27,16 +27,16 @@ while not search_list.empty?
   # node: 取り出したノードの番号
   cost, node = search_list.shift
 
-  # 現在のノード最少コストが確定済みならスキップ
+  # 取り出したノードの最少コストが確定済みならスキップ
   next if not min_costs[node].nil?
 
-  # 現在のノードを最少コストで確定させる
+  # 取り出したノードの最少コストを確定させる
   min_costs[node] = cost
 
-  # 全ノードの最少コストが確定したら終了
+  # 全ノードの最少コストが確定したらループを終了する
   break if not min_costs.any?(nil)
 
-  # 隣接ノードを順番に調べる
+  # 隣接ノードを順番に参照する
   ADJACENCY_LIST[node].each do |next_node, next_cost|
     # 隣接ノードの最少コストが確定済みならスキップ
     next if not min_costs[next_node].nil?

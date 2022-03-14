@@ -1,5 +1,7 @@
 # ダイクストラ法(Dijkstra's Algorithm)
 
+require "./priority_queue"
+
 # ---------------------------------------
 # 1. グラフの隣接リストadjacency_listを定義
 # ---------------------------------------
@@ -24,18 +26,18 @@ min_costs = Array.new(NODE)
 # 3. 探索リストserch_listに
 # [初期コスト, 開始ノード番号]を追加
 # ---------------------------------------
-search_list = [[0, 0]]
+search_list = PriorityQueue.new
+search_list.insert([0, 0])
 
 # ---------------------------------------
 # 4. search_listに要素がある間繰り返す
 # ---------------------------------------
-while not search_list.empty?
+while search_list.size > 0
 
   # ---------------------------------------
   # 4.1. 最小コストの要素[cost, node]を取り出す
   # ---------------------------------------
-  search_list.sort!
-  cost, node = search_list.shift
+  cost, node = search_list.extract
 
   # ---------------------------------------
   # 4.2. min_costs[node]が確定済みならスキップ
@@ -65,7 +67,7 @@ while not search_list.empty?
     # 4.5.2. search_listに隣接ノードまでの
     # コストとノード番号[cost + next_cost, next_node]を追加
     # ---------------------------------------
-    search_list << [cost + next_cost, next_node]
+    search_list.insert([cost + next_cost, next_node])
   end
 end
 

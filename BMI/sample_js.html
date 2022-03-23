@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI計算</title>
+  </head>
+  <body>
+    <h1>BMIを計算する</h1>
+    height[cm]: <input id="height" /><br />
+    weight[kg]: <input id="weight" /><br />
+    <button onclick="calc()">OK</button>
+    <p id="bmi"></p>
+    <p id="result"></p>
+
+    <script>
+      function calc() {
+        // --------------------
+        // データ受け取り
+        // --------------------
+        let weight = document.getElementById('weight').value
+        let height = document.getElementById('height').value
+
+        // --------------------
+        // BMI 計算、肥満度判定
+        // --------------------
+
+        // BMI BMI の小数点第1位までを四捨五入で求める
+        let bmi = weight / (height * 0.01) ** 2
+        bmi = parseInt(bmi * 10 + 0.5) / 10
+
+        // BMI で肥満度を判定する
+        let result
+        if (bmi < 18.5) {
+          result = 'やせている'
+        } else if (bmi < 25) {
+          result = '標準'
+        } else {
+          result = '太っている'
+        }
+
+        // --------------------
+        // 結果の出力
+        // --------------------
+        document.getElementById('bmi').textContent = `BMI: ${bmi}`
+        document.getElementById('result').textContent = `肥満度: ${result}`
+      }
+    </script>
+  </body>
+</html>

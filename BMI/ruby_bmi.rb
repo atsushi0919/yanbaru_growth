@@ -21,10 +21,13 @@ weight = gets.to_f
 # BMI 計算、肥満度判定
 # --------------------
 
-# BMI の小数点第1位までを四捨五入で求める
 # 身長は cm から m に変換する
-bmi = weight / (height * 0.01) ** 2
-bmi = (bmi * 10 + 0.5).to_i / 10.0
+height = height * 0.01
+# BMI を計算する
+bmi = weight / height ** 2
+# BMI の少数第2位を四捨五入する
+tmp = (bmi * 10 + 0.5).to_i
+bmi = tmp / 10.0
 # BMI で肥満度を判定する
 result = if bmi < 18.5
     "thin"

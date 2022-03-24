@@ -23,10 +23,13 @@ let weight = lines[1]
 // BMI 計算、肥満度判定
 // --------------------
 
-// BMI BMI の小数点第1位までを四捨五入で求める
 // 身長は cm から m に変換する
-bmi = weight / (height * 0.01) ** 2
-bmi = parseInt(bmi * 10 + 0.5) / 10
+height *= 0.01
+// BMI を計算する
+bmi = weight / height ** 2
+// BMI の少数第2位を四捨五入する
+let tmp = parseInt(bmi * 10 + 0.5)
+bmi = tmp / 10
 // BMI で肥満度を判定する
 let result
 if (bmi < 18.5) {

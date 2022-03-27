@@ -4,7 +4,7 @@ height = gets.to_f
 weight = gets.to_f
 
 # 身長を cm から m に変換する
-height = height * 0.01
+height *= 0.01
 # BMI を計算する
 bmi = weight / height ** 2
 # BMI の少数第2位を四捨五入する

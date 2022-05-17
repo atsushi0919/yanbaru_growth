@@ -2,6 +2,7 @@
 
 ## やんばる growth 発表内容
 
+- ### [2022-03-27 競プロ風オリジナル課題：色んな言語でBMIを計算してみる(pdf)](https://github.com/atsushi0919/yanbaru_growth/blob/main/BMI/BMI.pdf)
 - ### [2022-01-23 プログラミング学習サイト「アルゴメソッド」の紹介(pdf)](https://github.com/atsushi0919/yanbaru_growth/blob/main/paiza_and_algomethod_20220123.pdf)
 - ### [2021-12-26 paiza練習問題「約数の列挙」を解説しながら解く ]
   - ### [問題URL](https://paiza.jp/works/mondai/loop_problems2/loop_problems2__divsor_print)
